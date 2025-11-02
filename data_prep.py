@@ -53,7 +53,9 @@ test_df.to_csv(os.path.join(csv_dir, "test.csv"), index=False)
 print(f"train.csv ({len(train_df)}) / val.csv ({len(val_df)}) / test.csv ({len(test_df)}) created")
 
 counts = {"train": len(train_df), "val": len(val_df), "test": len(test_df)}
-plt.bar(counts.keys(), counts.values())
+plt.bar(counts.keys(), counts.values(), color=['blue', 'yellow', 'red'])
 plt.title("Dataset Split")
 plt.ylabel("Number of Samples")
-plt.show()
+bar_path = os.path.join(csv_dir, "dataset_split_bar.png")
+plt.savefig(bar_path, dpi=300, bbox_inches='tight')
+plt.close()  
